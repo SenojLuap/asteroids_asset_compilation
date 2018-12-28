@@ -9,6 +9,10 @@
     <PackageReference Include="CommandLineParser" Version="2.3.65" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="json_schemas\*" CopyToPublishDirectory="Always"/>
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
