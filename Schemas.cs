@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Schema;
 
-using static System.Console;
+using static Asteroids.Content.Compiler;
 
 namespace Asteroids.Content {
     public class Schemas {
@@ -65,11 +65,9 @@ namespace Asteroids.Content {
                     }
                 }
             } catch (IOException ex) {
-                // TODO: Handle this with application error handling
-                System.Console.WriteLine(name.ToUpper() + " SCHEMA [" + ex.GetType().Name + "]: " + ex.Message);
+                logger.Error(String.Format(name.ToUpper() + " schema [" + ex.GetType().Name + "]: " + ex.Message));
             } catch (Exception ex) {
-                // TODO: Handle this with application error handling
-                System.Console.WriteLine(name.ToUpper() + " SCHEMA [" + ex.GetType().Name + "]: " + ex.Message);
+                logger.Error(String.Format(name.ToUpper() + " schema [" + ex.GetType().Name + "]: " + ex.Message));
             }
             return null;
         }

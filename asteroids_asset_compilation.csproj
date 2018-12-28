@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\asteroids_common\asteroids_common.csproj" />
     <ProjectReference Include="..\CompressedStream\CompressedStream.csproj" />
+    <ProjectReference Include="..\logger\logger.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,7 +18,7 @@ namespace Asteroids.Content {
     [AssetCompiler("formation", "fdat")]
     public class FormationCompiler : AssetCompiler {
 
-        public override void Compile(string inFile, string outFile, Compiler compiler, out IEnumerable<string> errorMsgs) {
+        public override void Compile(string inFile, string outFile, out IEnumerable<string> errorMsgs) {
             var errors = new List<string>();
             errorMsgs = errors;
             var res = ParseJsonFormation(inFile, errors);

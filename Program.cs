@@ -18,7 +18,7 @@ namespace Asteroids.Content
                 var parsedArgs = results.Value;
                 if (String.IsNullOrEmpty(parsedArgs.OutputDirectory))
                     parsedArgs.OutputDirectory = parsedArgs.InputDirectory;
-                (new Compiler()).Run(parsedArgs.InputDirectory, parsedArgs.OutputDirectory);
+                Compiler.Run(parsedArgs.InputDirectory, parsedArgs.OutputDirectory);
             } catch (Exception ex) {
                 System.Console.WriteLine("Exception: {0}", ex.Message);
                 return 1;

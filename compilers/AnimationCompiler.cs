@@ -17,7 +17,7 @@ namespace Asteroids.Content {
     [AssetCompiler("animation", "adat")]
     public class AnimationCompiler : AssetCompiler {
 
-        public override void Compile(string inFile, string outFile, Compiler compiler, out IEnumerable<string> errors) {
+        public override void Compile(string inFile, string outFile, out IEnumerable<string> errors) {
             var outErrors = new List<string>();
             errors = outErrors;
 

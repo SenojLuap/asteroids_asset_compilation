@@ -9,14 +9,12 @@ using Newtonsoft.Json.Schema;
 
 using Asteroids.Common;
 
-using static System.Console;
-
 namespace Asteroids.Content {
 
     [AssetCompiler("spritesheet", "ssdat")]
     public class SpriteSheetCompiler : AssetCompiler {
 
-        public override void Compile(string inFile, string outFile, Compiler compiler, out IEnumerable<string> errorMsgs) {
+        public override void Compile(string inFile, string outFile, out IEnumerable<string> errorMsgs) {
             var errors = new List<string>();
             errorMsgs = errors;
 
@@ -63,7 +61,7 @@ namespace Asteroids.Content {
                     return res;
                 }
             } catch (Exception ex) {
-                WriteLine("While parsing sprite sheet: <{0}:{1}> {2}", ex.GetType().Name, ex.Source, ex.Message);
+                errors.Add(String.Format("While parsing sprite sheet: <{0}:{1}> {2}", ex.GetType().Name, ex.Source, ex.Message));
             }
             return null;
         }
