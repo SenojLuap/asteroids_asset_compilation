@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "file:///spritesheet.schema.json",
+    "title": "JSON Defined SpriteSheet",
+    "description": "Used to define a SpriteSheet (wrapper type for textures)",
+    "type": "object",
+    "required": [
+        "texture_name",
+        "key",
+        "frame_width",
+        "frame_height",
+        "version"
+    ],
+    "properties": {
+        "version": {
+            "description": "The version of the schema used",
+            "$ref": "version.schema.json"
+        },
+        "texture_name": {
+            "type": "string",
+            "description": "The asset file name to be loaded"
+        },
+        "key": {
+            "type": "string",
+            "description": "A unique identifier for the sprite sheet"
+        },
+        "frame_width": {
+            "type": "integer",
+            "description": "The width of a frame, in pixels",
+            "minimum": 1
+        },
+        "frame_height": {
+            "type": "integer",
+            "description": "The height of a frame, in pixels",
+            "minimum": 1
+        },
+        "offset": {
+            "type": "array",
+            "description": "Offset of the origin. (0, 0) by default",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "type": "integer",
+                "minimum": 0
+            }
+        }
+    }
+}

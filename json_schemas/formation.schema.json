@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "file:///formations.schema.json",
+    "title": "JSON Defined Formation",
+    "description": "Used to define an enemy formation/release-schedule",
+    "type": "object",
+    "properties": {
+        "key": {
+            "description": "A unique indentifier for the formation",
+            "type": "string"
+        },
+        "version": {
+            "description": "The version of the schema used",
+            "$ref": "version.schema.json"
+        },
+        "schedule": {
+            "description": "The release schedule of the enemies",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "A release time/position for an enemy",
+                "required": [
+                    "time",
+                    "position"
+                ],
+                "properties": {
+                    "time": {
+                        "description": "The release time of an enemy, in milliseconds",
+                        "type": "integer"
+                    },
+                    "position": {
+                        "description": "The position the enemy should be released from, relative to top-right corner of the screen",
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "minimum": 0.0,
+                            "maximum": 1.0
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "key",
+        "version",
+        "schedule"
+    ]
+}

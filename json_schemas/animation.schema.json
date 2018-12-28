@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "file:///animation.schema.json",
+    "title": "JSON Defined Animation",
+    "description": "Used to define an animation, referencing a SpriteSheet",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "The version of the schema used",
+            "$ref": "version.schema.json"
+        },
+        "key" : {
+            "type": "string",
+            "description": "A unique identifier for the animation"
+        },
+        "spritesheet": {
+            "type": "string",
+            "description": "The SpriteSheet to animate"
+        },
+        "bounce": {
+            "type": "boolean",
+            "description": "Should the animation reverse when reaching the end of the sequence. 'false' indicates the animation should restart from the beginning."
+        },
+        "frame_start": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "The first frame of the animation"
+        },
+        "frame_stop": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "The last frame of the animation (inclusive)"
+        },
+        "frame_length": {
+            "type": "number",
+            "minimum": 0.0,
+            "description": "The display time of a frame, in seconds"
+        },
+        "frames": {
+            "type": "array",
+            "description": "The individual frames, and display times of those frames",
+            "items": {
+                "type": "object",
+                "description": "A frame / framelength pair",
+                "properties": {
+                    "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "The frame to display"
+                    },
+                    "length": {
+                        "type": "number",
+                        "minimum": 0.0,
+                        "description": "The display time of the frame, in seconds"
+                    }
+                },
+                "required": ["frame", "length"]
+            }
+        }
+    },
+    "required": ["version", "key", "spritesheet"],
+    "oneOf": [
+        {
+            "required": ["frame_start", "frame_stop", "frame_length"]
+        },
+        {
+            "required": ["frames"]
+        }
+    ]
+}

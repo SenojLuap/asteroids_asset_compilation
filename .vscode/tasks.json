@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/asteroids_asset_compilation.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "-c", "Release",
+                "-f", "netcoreapp2.0",
+                "-r", "win10-x64"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
