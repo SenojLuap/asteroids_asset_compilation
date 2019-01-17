@@ -55,7 +55,7 @@ namespace Asteroids.Content {
                     JArray version = (JArray)obj["version"];
                     (int major, int minor) = ((int)version[0], (int)version[1]);
                     // TODO: Check formation file version
-                    res.key = (string)obj["key"];
+                    res.Key = (string)obj["key"];
                     foreach (var item in (JArray)obj["schedule"]) {
                         int startTime = (int)item["time"];
                         var posObj = (JArray)item["position"];
