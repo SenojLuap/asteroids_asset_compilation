@@ -61,10 +61,9 @@ namespace Asteroids.Content {
                     // TODO: Check animation file version
                     res.Key = (string)parsedObject["key"];
                     res.spriteSheetKey = (string)parsedObject["spritesheet"];
+                    bool bounce = false;
                     if (parsedObject.ContainsKey("bounce"))
-                        res.bounce = (bool)parsedObject["bounce"];
-                    else
-                        res.bounce = false;
+                        bounce = (bool)parsedObject["bounce"];
                     if (parsedObject.ContainsKey("frame_length")) {
                         int frameStart = (int)parsedObject["frame_start"];
                         int frameStop = (int)parsedObject["frame_stop"];
@@ -77,7 +76,7 @@ namespace Asteroids.Content {
                         foreach (int frame in range) {
                             frames.Add((frame, frameLength));
                         }
-                        res.frames = frames.ToArray();
+                        res.Frames = JsonSpriteAnimation.CreateFrames(bounce, frames.ToArray());
                     } else {
                         var frames = new List<(int, double)>();
                         var frameArray = (JArray)parsedObject["frames"];
@@ -87,7 +86,7 @@ namespace Asteroids.Content {
                             double length = (double)frameObj["length"];
                             frames.Add((frame, length));
                         }
-                        res.frames = frames.ToArray();
+                        res.Frames = JsonSpriteAnimation.CreateFrames(bounce, frames.ToArray());
                     }
                 }
                 return res;
